@@ -1,0 +1,109 @@
+BACKEND
+    - NodeJS
+        -> Fw: ExpressJS
+    -> Base de datos
+        -> MYSQL
+UI:     
+    -> Postman
+
+
+    Diagrama: [ Base de datos ] ---- [ API ] ---- [APP: Clientes]
+
+    API: Application Programming Interface
+        -> Paradigma REST
+
+    Def/ Un conjunto de URLs que nos sirven para consumir y enviar datos
+
+        Problema: 
+            -> Un conjunto de URLs
+            -> consumir y enviar
+            -> datos
+
+    
+    EJEMPLO: Login de Facebook
+
+    PASO 1: 
+
+        -> Interfaz
+            -> HTML/CSS/JS
+
+                -> Dos inputs: 
+                    -> usuario
+                    -> clave
+
+        -> Una vez que el usuario completa los datos
+        
+    PASO 2: 
+
+        -> Con esos datos tengo que autenticar al usuario
+        -> Como ese usuario A no es usuario B?
+
+        Envio los datos del usuario: [usuario, clave] en un formato (datos) a una URL de Facebook (Endpoint)
+
+    PASO 3:
+
+        -> Una vez que llega los datos
+        -> Un algoritmo valida que el usuario que me llega es A
+        -> FLUJOS
+            -> Si el usuario es A entonces devuelve el dato para redirigir al muro de FB
+            -> Si el usuario no es A entonces me devuelve datos de un error
+    
+    PASO 4:
+
+        -> La interfaz captura la informacion que nos devuelve el paso 3
+        -> Con la informacion que recibe ejecuta el flujo para el usuario
+
+    DUDAS: 
+
+        * Un conjunto de URLs -> Donde estan -> Servidor web
+        * consumir y enviar -> A traves de donde -> Protocolo HTTP
+        * datos -> que tipo -> std datos tipo: JSON
+
+    SERVIDOR WEB: 
+
+        -> Una maquina que corre un servicio que escucha I/O a traves de un puerto
+            -> Ejemplo: localhost:3000
+                -> localhost: servidor
+                -> 3000: puerto
+
+        -> NodeJS tiene que tener alguna lib que pueda construir un servidor web
+            -> Express
+    
+    PROTOCOLO HTTP: 
+
+        -> Hypertext transfer protocol
+        -> HTML: Hypertext markup lang
+
+        HTTP VERBOS: 
+
+            -> GET  : consumir / obtener informacion 
+            -> POST : Enviar informacion
+            -> PUT  : Enviar informacion
+            -> DELETE : Enviar informacion
+
+        ENVIA Y OBTIENE : DOCUMENTOS
+
+    std. JSON: Javascript Object Notation
+
+        let a = [1, 2, 3] -> to JSON ->  {"a": [1,2,3]}
+
+        Input (JSON) -> [ parser (Input) -> (JavaScript) Nativo del lng ]
+
+    std XML:
+
+    Representar: Nombre
+
+        Nombre: Alex
+
+    JSON -> {"nombre":"Alex"}
+
+    XML -> 
+        <?xml ... >
+            <Persona>
+                <Nombre>Alex</Nombre>
+            </Persona>
+        </xml>
+
+    Diagrama: { Servidor web: [ DB: MYSQL ] <----> [ API: NodeJS/Express ] } <-- HTTP --> [APP: Clientes]
+
+    

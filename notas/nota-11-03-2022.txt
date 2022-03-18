@@ -1,0 +1,50 @@
+MARCADO: 
+    Hoy: -> 10 y (Programacion: JS, Front, Back)
+    Mañana: -> Desarrollo low-code
+
+CARRERA DE DESARROLLO DE SOFTWARE: 
+
+    FrontEnd
+        -> FrontEnd UI: HTML/CSS (Framework)
+        -> FrontEnd Integracion (UI + Conectarse al Back)
+
+    BackEnd
+        -> API + Base de datos
+        -> Core
+        -> Itegration
+            -> Middleware
+            -> Connectors
+                -> FaaS : Function as a Service
+                -> Server less
+                -> Lambda 
+
+    DevOps
+        -> Infraestructura para codigo
+
+    FullStack
+        Front: 60%
+        back: 30%
+        DevOps: 10%
+
+        -> Tech leader
+        -> Arq. software
+
+    Startups
+        -> Lexart
+        -> Tryolabs
+        -> Octobot
+        -> ML
+        -> PedidosYa
+        -> dLocal
+        -> Dualboot
+
+    Corps 
+        -> Globant
+        -> TCS
+        -> Netsuite
+        -> Oracle
+        
+    Studios
+        -> Disenio MK digital
+
+
