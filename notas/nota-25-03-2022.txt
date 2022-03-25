@@ -1,0 +1,65 @@
+EJERCICIO RAPIDO #1: 
+    -> Aplicacion web que escribo el apellido y me devuelve un Nombre
+    -> Input
+        -> Apellido
+        -> Procesar el backend
+        -> Devolver un nombre
+
+    FLUJO: 
+        Input -> API -> Output
+
+    Input: casadevall   -> API -> Output: alex
+    Input: rojas        -> API -> Output: facundo
+    Input: segundo      -> API -> Output: juan
+
+
+    PROBLEMA #1 : Quiero enviar el apellido a la API 
+
+        -> Para enviar datos vamos a utilizar el HTTP POST
+        -> Enviar la informacion: 
+            (URL, verbo, payload)
+
+        ENVIO: 
+            URL: api.com/obtener-nombre
+            VERBO: POST
+            PAYLOAD: {"apellido": "casadevall"}
+
+        RECIBIR: 
+            BODY: 
+                {"nombre": "alex"}
+
+    OBS: Como las API's que vamos a estudiar son de tipo REST
+        -> Esta orientada a estados representativos
+
+
+    Como aplico los pasos del PROBLEMA #1 en NodeJS?
+
+    1. Setup de mi ambiente
+        -> Descargar e instalar nodejs el LTS
+        -> Verificar las versiones en la terminal 
+            De: 
+                -> npm -v
+                -> node -v
+
+        -> Instalar nodemon
+            -> npm i -g nodemon
+
+                -> npm: gestor de paquetes
+                -> arg: i : instalar
+                -> arg: -g : global
+                -> nodemon : nombre del programa
+
+            -> nodemon -v
+
+    2. Crear una carpeta que va a ser nuestra API
+    3. Dentro de la carpeta, crear un archivo app.js
+    4. Escribir un console.log("Hola Mundo") dentro de app.js
+    5. Correr la API, dentro de la carpeta (en este caso) backend01 
+        -> nodemon app.js
+    6. Resolver el problema algoritmico
+    7. Transformamos el algoritmo en un modulo reutilizable
+    
+    
+
+
+    
