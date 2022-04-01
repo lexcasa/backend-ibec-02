@@ -38,8 +38,11 @@ PROBLEMA #1 : Quiero enviar el apellido a la API
 6. Resolver el problema algoritmico
 7. Transformamos el algoritmo en un modulo reutilizable
 8. Montar la estructura para la API
+    - Crear el archivo package.json con el comando: npm init
+    - Responder todas las preguntas
     - Instalar express y dependencias utiles: 
         npm i --save express mysql cors body-parser
+        (la segunda vez): npm i
     - La instalacion va a generar una carpeta y un archivo:
         - node_modules
         - package-lock.json
