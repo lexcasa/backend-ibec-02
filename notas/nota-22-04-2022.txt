@@ -1,0 +1,48 @@
+Operaciones CRUD
+
+    -> Create   : POST
+    -> Read     : GET
+    -> Update   : PUT
+    -> Delete   : DELETE
+
+
+
+EJEMPLO #1: Envio nombre y apellido de una persona y la API nos devuelve la Edad
+
+    -> Estado: 
+        -> /obtener-edad
+        -> POST
+
+        Request: 
+            
+            -> JSON: {
+                "nombre":"alex",
+                "apellido:"casadevall"
+            }
+
+        Response: 
+
+            -> JSON: {
+                "edad":30
+            }
+
+    -> Utilizar una herramienta - POSTMAN
+        -> Descargar la app a sus maquinas
+        -> Extension de chrome (app chrome)
+
+    1. DESARROLLAR EL PROBLEMA ALGORITMICO
+    2. INTEGRAR EL SERVICIO CON LA API
+    3. HACER PRUEBAS CON UNA INTERFAZ
+
+EJERCICIO RAPIDO #1: Envio el nombre de una persona y me devuelve: SALUDO + Nombre
+
+    Input: {
+        "nombre":"alex"
+    }
+
+    Output: {
+        "saludo":"Hola, alex"
+    }
+
+    
+
