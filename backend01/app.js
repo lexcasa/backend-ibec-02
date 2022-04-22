@@ -35,6 +35,13 @@ app.post('/obtener-edad', (req, res) => {
     res.send(respuesta)
 })
 
+app.post('/saludo', (req, res) => {
+    const persona   = req.body
+    const respuesta = Persona.saludo(persona)
+
+    res.send(respuesta)
+})
+
 app.listen(port, (req, res) => {
     console.log("WEBSERVER ::: ", port)
 })

@@ -28,6 +28,15 @@ const Persona = {
         // if - else en linea
         // if obj existe (?) entonces obj.edad caso contrario (:) error
         return obj ? {edad: obj.edad} : {error: 'No se encontro la edad'}
+    },
+    saludo: function (objPersona){
+        let obj = undefined
+        if(objPersona.nombre){
+            obj = {
+                saludo: "Hola, " + objPersona.nombre
+            }
+        }
+        return obj ? obj : {error: "Nombre de la persona es vacio"}
     }
 }
 
@@ -48,4 +57,10 @@ const Persona = {
     console.log( Persona.obtenerEdad(objSuccess),   " ---> 30")
     console.log( Persona.obtenerEdad(objError),     " ---> Error")
 */
+
+/*
+    console.log( Persona.saludo({nombre: "Alex"}),      " ---> Hola, Alex")
+    console.log( Persona.saludo({nombre: ""}),          " ---> Error")
+*/
+
 module.exports = Persona
