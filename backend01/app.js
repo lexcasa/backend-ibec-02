@@ -5,6 +5,7 @@ const port    = 3000
 
 const AlgoBuscaNombre = require('./services/algobuscanombre.service')
 const Persona         = require('./services/persona.service')
+const Usuario         = require('./services/usuarios.service')
 
 
 app.get('/', (req, res) => {
@@ -38,6 +39,23 @@ app.post('/obtener-edad', (req, res) => {
 app.post('/saludo', (req, res) => {
     const persona   = req.body
     const respuesta = Persona.saludo(persona)
+
+    res.send(respuesta)
+})
+
+
+/// Obtener usuario por ID
+app.get('/usuarios/:id', (req, res) => {
+    const id   = req.params.id
+    const respuesta = Usuario.obtenerPorId(id)
+
+    res.send(respuesta)
+})
+
+app.put('/usuarios/:id', (req, res) => {
+    const usuario   = req.body
+    const id        = req.params.id
+    const respuesta = Usuario.actualizarPorId(id, usuario)
 
     res.send(respuesta)
 })

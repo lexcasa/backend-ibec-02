@@ -1,0 +1,41 @@
+Operaciones CRUD
+
+    -> Create   : POST
+    -> Read     : GET
+    -> Update   : PUT
+    -> Delete   : DELETE
+
+
+-> Op. PUT: Se utiliza para actualizar una informacion en el backend
+
+EJEMPLO: Si tenemos un perfil de usuario y queremos cambiar algunos datos del perfil
+    -> Vamos a utilizar la operacion Update que se corelaciona con el PUT
+
+    -> Estado: 
+        -> URL: /usuario/:id
+        -> Metodo: PUT
+        -> Payload: 
+            {
+                "nombre":"Alex",
+                "apellido":"Correa"
+            }
+        
+        -> Retornar el Objeto del usuario nuevo
+
+EJERCICIO RAPIDO #1: Actualizar un usuario de un array de usuarios por su ID y desplegar como respuesta
+
+    -> GET: Estado para obtener el usuario por ID
+    -> PUT: Estado que va actualizar el usuario por ID
+
+PRINCIPIOS:
+    1. DESARROLLAR EL PROBLEMA ALGORITMICO
+    2. INTEGRAR EL SERVICIO CON LA API
+    3. HACER PRUEBAS CON UNA INTERFAZ
+
+
+EJERCICIO RAPIDO #2: Obtener a todos los usuarios. Crear un usuario nuevo y que la respuesta sea la lista
+de todos los usuarios mas el nuevo
+
+    -> GET: Estado para obtener a todos los usuarios
+    -> POST: Estado para crear al usuario nuevo
+
