@@ -1,0 +1,46 @@
+EJERCICIO RAPIDO #1: Obtener a todos los usuarios. Crear un usuario nuevo y que la respuesta sea la lista
+de todos los usuarios mas el nuevo
+
+    -> GET: Estado para obtener a todos los usuarios [x]
+    -> POST: Estado para crear al usuario nuevo [x]
+    -> DELETE: Eliminar un usuario por ID [x]
+    -> Construir un postman
+
+
+    1. ALGORITMO / TEST
+    2. INTEGRACION
+    3. TEST UI / POSTMAN
+
+
+    POST: Estado para crear al usuario nuevo
+
+    Url: /usuarios
+    Methodo: POST
+    Payload: 
+    {
+        nombre: "Pedro",
+        apellido: "Casadevall"
+    }
+
+    Algoritmo. Que la ID sea creada automaticamente y que no se repita con las ID's que tengo 
+    dentro del array
+
+        -> Algoritmo #1:
+            -> Si las id's van en orden creciente
+            -> Le sumo +1 a la id del ultimo elemento de la lista
+            -> Verificar que esa ID no exista en los elementos de la lista anterior
+
+        -> Algoritmo #2: 
+            -> Crear una ID aleatoria mas de 6 digitos
+            -> Prop. de repetirse es muy chica
+
+        -> DEBERES: Algoritmo #3: 
+            -> uuid : XXXX-YYYY-ZZZZ-WWWW
+            -> Donde: XXXX -> [0-9][a-z]
+            -> 12bz-12xc-34bx-1234
+            -> Pique: Math.floor(Math.random() * strArr.length)
+
+                [0, ... 5] * K
+                [0.K, ..., 5.K]
+
+                K es aleatorio -> [0, 1]

@@ -5,18 +5,31 @@ const usuarios = [
         apellido: "Casadevall"
     },
     {
-        id: 111,
-        nombre: "Juan",
-        apellido: "Casadevall"
-    },
-    {
         id: 222,
         nombre: "Pedro",
         apellido: "Casadevall"
+    },
+    {
+        id: 111,
+        nombre: "Juan",
+        apellido: "Casadevall"
     }
 ]
+const SIZE_STACK = 1000000000000000
+
+const orderById = (a, b) => {
+    if(a.id < b.id){
+        return -1
+    } else if (a.id > b.id){
+        return 1
+    }
+    return 0
+}
 
 const Usuario = {
+    todos: function (){
+        return usuarios
+    },
     obtenerPorId: function (id){
         let find = undefined
         usuarios.map( usuario => {
@@ -36,6 +49,29 @@ const Usuario = {
         }
 
         return usr
+    },
+    crear: function (usuario){
+        let allUsers = this.todos()
+        allUsers     = allUsers.sort(orderById)
+        console.log("usuarios ordenados ::", allUsers)
+        let lastUser = allUsers[ allUsers.length - 1]
+        // let newId    = lastUser.id + 1
+        let newId       = Math.round( Math.random() * SIZE_STACK )
+
+        usuario.id   = newId
+        usuarios.push(usuario)
+
+        return usuarios
+    },
+    eliminar: function (id){
+        let findIndx = -1
+        usuarios.map( (usuario, i) => {
+            if(usuario.id == id){
+                findIndx = i
+            }
+        })
+        usuarios.splice(findIndx, 1)
+        return usuarios
     }
 }
 

@@ -60,6 +60,25 @@ app.put('/usuarios/:id', (req, res) => {
     res.send(respuesta)
 })
 
+app.delete('/usuarios/:id', (req, res) => {
+    const id   = req.params.id
+    const respuesta = Usuario.eliminar(id)
+
+    res.send(respuesta)
+})
+
+app.get('/usuarios', (req, res) => {
+    const usuarios = Usuario.todos()
+    res.send(usuarios)
+})
+
+app.post('/usuarios', (req, res) => {
+    const usuario   = req.body
+    const respuesta = Usuario.crear(usuario)
+
+    res.send(respuesta)
+})
+
 app.listen(port, (req, res) => {
     console.log("WEBSERVER ::: ", port)
 })
