@@ -1,0 +1,96 @@
+BASE DE DATOS:
+
+    -> XAMPP o WAMP
+        -> DB: MYSQL
+
+    -> Operaciones CRUD
+    -> SQL: Verbos principales
+
+    Rol > DBA
+
+    Programa A : 
+
+        -> Input
+        -> Output   
+
+    Ejecutaba en un t=1
+
+    Almacenar los resultados de PA: 
+
+        -> Output 1
+        -> Output 2
+        ...
+        -> Output N
+
+        Input : Output -> PA -> Output
+    
+    -> Guardar informacion que persista con respecto al tiempo
+    -> Tener una herramienta para consultar esa informacion y agregar nueva
+
+    DB minima - Resolver problemas
+        -> Solo con que exista la base de datos
+        -> Un auxiliar para resolver un problema
+    
+    DB minima: 
+        -> Lang de consulta estructurado
+        -> Los datos almacenados deben persistir en el tiempo
+        -> Soportar Op. CRUD
+            -> Create, Read, Update, Delete
+    
+    Entidad, Modelo, Relacion
+
+    EJEMPLO #1: Minimercado y quiero controlar el stock de mis productos
+
+    -> Entidad: Abs. de la realidad que tiene N prop que hace unico dentro de una base de datos
+
+    Base de datos: Tienda
+
+    E1: Producto: {
+        cod,
+        precio,
+        nombre
+    }
+
+    E2: Cliente: {
+        nombre,
+        documento
+    }
+
+    R1: Stock: {
+        Producto,
+        Cantidad
+    }
+
+    Ingreso: -> (Arroz, 10)
+    Egreso:  -> (Arroz, -10)
+
+    Modelo: 
+        -> Productos    (cod: TEXT, precio: FLOAT, nombre: TEXT)
+        -> Clientes     (nombre: TEXT, documento: TEXT)
+        -> Stock        (cod: TEXT, cantidad)
+
+    BASE: 
+        -> Productos: 
+            (ABC123, 12, Arroz)
+            (ABC111, 10, Azucar)
+        
+        -> Clientes: 
+            (Alex, 123123)
+            (Juan, 122222)
+        
+        -> Stock: 
+            (ABC123, 10)
+            (ABC123, -5)
+            (ABC111, 123)
+            (ABC111, -3)
+
+        Totalizar: 
+            -> Arroz:    5
+            -> Azucar: 120
+
+    -> Enviar notas de base de datos + ejercicios
+    -> SQL: op. CRUD
+    -> XAMP o WAMP -> MYSQL : Phpmyadmin
+
+        -> Fund. de datos : op. CRUD
+        -> Fund. de estructura
