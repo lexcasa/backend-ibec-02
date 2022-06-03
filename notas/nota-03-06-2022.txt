@@ -1,0 +1,126 @@
+-> Base de datos
+    -> Que soporte las operaciones CRUD
+        -> Crud: Create, Read, Update, Delete
+
+    Base de datos: Es donde se almacena datos de forma ordenada
+    y que persista en el tiempo
+
+    -> La existencia de una base de datos resuelve: 
+        -> Problemas locales
+        -> Auxiliar para problemas generales
+
+    EJEMEPLO (local): Si tengo una agenda telefonica
+        -> Listar
+        -> Ingresar
+        -> Editar contactos
+    
+    EJEMEPLO (general): Medir la posibilidad de amigos en comun que puedo
+    tener en una red social segun XY indicadores
+
+
+    Ejemplo de Tienda: Tienda de motos
+
+    Planteo la base de datos (MYSQL): 
+
+        -> Entidades
+            -> Producto
+            -> Cliente
+
+        -> Relaciones
+            -> Compras
+        
+        Entidad: Abs de la realidad de un objeto con propiedades que lo hacen unico, 
+        para un problema en particular.
+
+        -> Que vende la tienda: motos
+            -> moto es un producto
+                -> Que propiedades necesarias y suficientes necesito
+                para identificar una moto?
+                    -> modelo
+                    -> marca
+                    -> cc
+                -> Hay algun obj que tenga las mismas prop. de Producto?
+                    -> No
+
+        -> Quien compra las motos?
+            -> Los clientes compran la moto
+                -> Que prop. necesarias y suficientes necesito para identificar un cliente?
+                    -> nombre
+                    -> documento
+                    -> email
+                -> Hay algun obj que tenga las mismas prop. de Cliente?
+                    -> No
+        Entidades: 
+            Producto: (modelo, marca, cc)
+            Cliente: (nombre, documento, email)
+        
+        Relaciones: 
+            Cliente < compra > Producto
+            Compras: (producto, cliente, cantidad, precio)
+
+        Cuando paso la teoria ---> datos
+            -> Creo un modelo
+
+        Modelo de datos: 
+
+            productos: 
+
+                id | modelo  | marca     | cc 
+                -------------------------------
+                1  | monster | ducati    | 800
+                2  | Sporter | Harley    | 883
+
+            clientes:
+
+                nombre  | documento | email 
+                -----------------------------
+                alex    | 123213    | alex@gmail.com
+                juan    | 2222      | juan@gmail.com
+
+            compras: 
+
+                producto  | cliente | cantidad | precio 
+                ---------------------------------------
+                    1     | 123213  | 1        | 12000
+                    1     | 2222    | 1        | 12000
+
+    Base de datos SQL (MYSQL)
+
+        -> Fund. de datos
+            -> Op. Crud
+            -> Cruzamientos
+        
+        -> Fund. de estructuras
+            -> Gestor de base de datos
+                -> phpmyadmin
+                    -> XAMPP o WAMP
+
+        
+    Sintaxis de SQL -- CRUD
+
+    Create - Query: 
+
+        INSERT INTO nombre_tabla (prop1, ..., propN)
+        VALUES (val1, ..., valN)
+
+    Read - Query: 
+
+        SELECT prop1, ... , propN FROM nombre_tabla
+        WHERE [Logica con las props]
+    
+    Update - Query: 
+
+        UPDATE nombre_tabla SET prop1 = val1, ... propN = valN
+        WHERE [Logica con las props]
+
+    Delete - Query: 
+
+        DELETE FROM nombre_tabla
+        WHERE [Logica con las props]
+    
+
+    EJERCICIOS RAPIDO #1: Crear tabla de clientes, compras
+        -> Agregarle datos de ejemplo
+                
+
+        
