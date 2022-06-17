@@ -1,0 +1,129 @@
+productos: 
+
+    id | modelo  | marca     | cc 
+    -------------------------------
+    1  | monster | ducati    | 800
+    2  | Sporter | Harley    | 883
+
+clientes:
+
+    nombre  | documento | email 
+    -----------------------------
+    alex    | 123213    | alex@gmail.com
+    juan    | 2222      | juan@gmail.com
+
+compras: 
+
+    producto  | cliente | cantidad | precio 
+    ---------------------------------------
+        1     | 123213  | 1        | 12000
+        1     | 2222    | 1        | 12000
+
+----
+
+Sintaxis de SQL -- CRUD
+
+    Create - Query: 
+
+        INSERT INTO nombre_tabla (prop1, ..., propN)
+        VALUES (val1, ..., valN)
+
+    Read - Query: 
+
+        SELECT prop1, ... , propN FROM nombre_tabla
+        WHERE [Logica con las props]
+    
+    Update - Query: 
+
+        UPDATE nombre_tabla SET prop1 = val1, ... propN = valN
+        WHERE [Logica con las props]
+
+    Delete - Query: 
+
+        DELETE FROM nombre_tabla
+        WHERE [Logica con las props]
+    
+
+    EJERCICIOS RAPIDO #1: Crear tabla de clientes, compras
+        -> Agregarle datos de ejemplo
+
+
+    TESTS: 
+        -> Ingresar un registro de clientes
+            -> Registro unico
+        -> Tratar de ingresar un registro repetido
+            -> email que ya exista en la base de datos
+                -> para romper la clave unica
+    
+    CRUD: 
+        -> Create:
+            -> INSERT INTO clientes (nombre, documento, email)
+               VALUES ("Alex", "123213", "alex@gmail.com");
+            -> INSERT INTO clientes (nombre, documento, email)
+               VALUES ("Juan", "22222", "juan@gmail.com");
+        -> Read: 
+            -> SELECT * FROM clientes (cuando damos clic en el nombre de tabla)
+                -> Obtener los clientes (nombre, documento) por documento
+                    -> Query: SELECT nombre, documento FROM clientes
+                              WHERE documento = '22222'
+                                -> Una row: 
+                                    -> ("Juan", "22222")
+        -> Update:
+            -> Actualizar el cliente por id
+                -> UPDATE clientes SET nombre = "Pedro"
+                   WHERE id = 1
+                      -> Cliente que tenia nombre: Alex
+                            -> A nombre: Pedro
+
+            -> Actualizar el cliente por documento
+                -> UPDATE clientes SET nombre = "Manuel"
+                   WHERE documento = "22222"
+                      -> Cliente que tenia nombre: Juan
+                            -> A nombre: Manuel
+        -> Delete: 
+            -> Quiero eliminar el primer registro id = 1
+                -> DELETE FROM clientes WHERE id = 1
+
+    GENERAR TABLA COMPRAS
+        -> (id, idProducto, idCliente, precio, cantidad)
+
+            -> Generar una compra: 
+                -> Create: 
+                    -> INSERT INTO compras (idProducto, idCliente, cantidad, precio)
+                       VALUES (1, 2, 2, 9800.56)
+                -> Read: 
+                    -> Obtener los datos de la tabla
+                    -> Obtener un reporte sabiendo (nombreCliente, nombreProducto, cantidad, precio)
+                        -> Quien es el cliente?
+                        -> Cual es el producto?
+                            -> UNIR LAS TABLAS
+                                -> clientes   |-----> compras
+                                -> productos  |
+                            
+                            SELECT 
+                                clientes.nombre AS nombreCliente,
+                                productos.modelo AS nombreProducto,
+                                compras.cantidad,
+                                compras.precio,
+                               (compras.cantidad * compras.precio) AS subtotal
+                            FROM compras
+                            JOIN clientes ON compras.idCliente     = clientes.id
+                            JOIN productos ON compras.idProducto = productos.id
+
+                Tablas: 
+                    -> Compras
+                    -> Stock
+                        -> Si tiene una id A_I
+                            -> Podemos corregir los registros sin dejar rastro de error
+                                -> Le erramos en una cantidad
+                                    -> UPDATE compras SET cantidad = 5
+                                       WHERE id = 123
+                        -> Si no tiene una id A_I
+                            -> Generar un registro de correccion
+                                -> (1, 1, 5, 9850) -> Lo identifico como error
+                                    -> (1, 1, 3, 9850)
+                                -> INSERT INTO compras (idProducto, idCliente, cantidad, precio)
+                                   VALUES (1, 1, -2, 9850)
+                                
+                                TOTALIZAR POR GRUPOS
+                                    -> Dame el total de items por el producto - 1
