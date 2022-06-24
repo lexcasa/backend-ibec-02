@@ -19,3 +19,9 @@ Operaciones CRUD
                 "marca": "ducati",
                 "cc": 800
             }
+
+    EJERCICIO RAPIDO #1: Crear crud de clientes para tienda
+        -> Listar todos los clientes
+        -> Crear cliente
+        -> Editar cliente
+        -> Eliminar cliente por ID
