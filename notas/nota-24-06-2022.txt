@@ -1,0 +1,21 @@
+Operaciones CRUD
+    -> Integrar MYSQL con el backend
+    -> services
+        -> mdb.service
+            -> Utiliza el package mysql
+            -> Funcion
+                -> Query (SQL)
+                        ----> Servicio de base de datos
+                Datos   <----
+    Tabla: Productos
+        -> Read: 
+            -> GET 
+            -> /tienda/productos
+        -> Create
+            -> POST
+            -> /tienda/productos
+            {
+                "modelo": "monster",
+                "marca": "ducati",
+                "cc": 800
+            }

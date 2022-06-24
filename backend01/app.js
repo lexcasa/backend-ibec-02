@@ -6,6 +6,7 @@ const port    = 3000
 const AlgoBuscaNombre = require('./services/algobuscanombre.service')
 const Persona         = require('./services/persona.service')
 const Usuario         = require('./services/usuarios.service')
+const Producto        = require('./services/productos.service')
 
 
 app.get('/', (req, res) => {
@@ -78,6 +79,32 @@ app.post('/usuarios', (req, res) => {
 
     res.send(respuesta)
 })
+
+// Tienda
+    // Productos
+    app.get('/tienda/productos', async (req, res) => {
+        const productos = await Producto.todos()
+        res.send(productos)
+    })
+    // new
+    app.post('/tienda/productos', async (req, res) => {
+        const producto  = req.body
+        const respuesta = await Producto.nuevo(producto)
+        res.send(respuesta)
+    })
+    // edit
+    app.put('/tienda/productos', async (req, res) => {
+        const producto  = req.body
+        const respuesta = await Producto.editar(producto)
+        res.send(respuesta)
+    })
+
+    app.delete('/tienda/productos/:id', async (req, res) => {
+        const id  = req.params.id
+        const respuesta = await Producto.eliminar(id)
+        res.send(respuesta)
+    })
+
 
 app.listen(port, (req, res) => {
     console.log("WEBSERVER ::: ", port)
