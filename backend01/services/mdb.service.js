@@ -1,13 +1,14 @@
 const mysql      = require('mysql');
-const connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : '',
-  database : 'tienda_motos'
-});
-
 const Mdb = {
     query: function (query, fields){
+        
+        const connection = mysql.createConnection({
+            host     : 'localhost',
+            user     : 'root',
+            password : '',
+            database : 'tienda_motos'
+        });
+
         return new Promise( (resolve, reject) => {
             connection.connect();
             connection.query(query, fields, function (error, results, fields) {
@@ -17,7 +18,7 @@ const Mdb = {
                     resolve(results)
                 }
             })
-            //connection.end();
+            connection.end();
         })
     }
 }
