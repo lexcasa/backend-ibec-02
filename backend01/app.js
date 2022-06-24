@@ -7,6 +7,7 @@ const AlgoBuscaNombre = require('./services/algobuscanombre.service')
 const Persona         = require('./services/persona.service')
 const Usuario         = require('./services/usuarios.service')
 const Producto        = require('./services/productos.service')
+const Cliente         = require('./services/clientes.service')
 
 
 app.get('/', (req, res) => {
@@ -102,6 +103,31 @@ app.post('/usuarios', (req, res) => {
     app.delete('/tienda/productos/:id', async (req, res) => {
         const id  = req.params.id
         const respuesta = await Producto.eliminar(id)
+        res.send(respuesta)
+    })
+
+
+    // Clientes
+    app.get('/tienda/clientes', async (req, res) => {
+        const clientes = await Cliente.todos()
+        res.send(clientes)
+    })
+    // new
+    app.post('/tienda/clientes', async (req, res) => {
+        const cliente  = req.body
+        const respuesta = await Cliente.nuevo(cliente)
+        res.send(respuesta)
+    })
+    // edit
+    app.put('/tienda/clientes', async (req, res) => {
+        const cliente  = req.body
+        const respuesta = await Cliente.editar(cliente)
+        res.send(respuesta)
+    })
+
+    app.delete('/tienda/clientes/:id', async (req, res) => {
+        const id  = req.params.id
+        const respuesta = await Cliente.eliminar(id)
         res.send(respuesta)
     })
 
