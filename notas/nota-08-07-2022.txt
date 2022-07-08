@@ -42,3 +42,15 @@ EJERCICIO RAPIDO #1: Trabajar en API Compras
     EJERCICIO RAPIDO #2: 
         -> Crear la API para editar una compra
         -> Crear un filtro al reporte por marca y cliente
+
+    Autenticacion: 
+        -> Tabla de usuarios
+            -> Usuario: (id, email, clave, tipo, activo)
+                -> id clave primaria
+                -> email clave unica
+                -> activo es un tyneint (0,1)
+                -> clave
+                    -> hasheada con MD5
+            
+            SELECT * FROM usuarios
+            WHERE email = ? AND clave = MD5(?)
