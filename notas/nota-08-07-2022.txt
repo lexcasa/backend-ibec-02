@@ -1,0 +1,44 @@
+EJERCICIO RAPIDO #1: Trabajar en API Compras
+    1. Reporte de compras
+        Producto, Cliente, Cantidad, Precio
+        Total
+            -> 
+                {
+                    response: {
+                        total: xxx,
+                        compras: [
+                            {
+                                producto: xxx,
+                                cliente: xxx,
+                                cantidad: xxx,
+                                precio: xxx
+                            }
+                        ]
+                    }
+                }
+
+            TOTAL: 
+                -> suma de todos las compras 
+                    -> cantidad * precio
+    2. API
+        -> Ingresar una compra
+
+    1. Reporte de compras
+        -> GET /tienda/compras/reporte
+        -> Response:  {
+                            response: {
+                                total: xxx,
+                                compras: [
+                                    {
+                                        producto: xxx,
+                                        cliente: xxx,
+                                        cantidad: xxx,
+                                        precio: xxx
+                                    }
+                                ]
+                            }
+                        }
+
+    EJERCICIO RAPIDO #2: 
+        -> Crear la API para editar una compra
+        -> Crear un filtro al reporte por marca y cliente

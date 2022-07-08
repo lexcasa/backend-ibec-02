@@ -8,6 +8,7 @@ const Persona         = require('./services/persona.service')
 const Usuario         = require('./services/usuarios.service')
 const Producto        = require('./services/productos.service')
 const Cliente         = require('./services/clientes.service')
+const Compras         = require('./services/compras.service')
 
 
 app.get('/', (req, res) => {
@@ -131,6 +132,19 @@ app.post('/usuarios', (req, res) => {
         res.send(respuesta)
     })
 
+    // Compras
+        // Reporte
+        app.get('/tienda/compras/reporte', async (req, res) => {
+            const reporte = await Compras.todas()
+            res.send(reporte)
+        })
+
+        // Crear compra
+        app.post('/tienda/compras', async (req, res) => {
+            const compra  = req.body
+            const respuesta = await Compras.nuevo(compra)
+            res.send(respuesta)
+        })
 
 app.listen(port, (req, res) => {
     console.log("WEBSERVER ::: ", port)
