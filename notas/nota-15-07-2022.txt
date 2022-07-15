@@ -1,0 +1,57 @@
+EJERCICIO RAPIDO #2: 
+    -> Crear la API para editar una compra
+    -> Crear un filtro al reporte por marca y cliente
+
+Autenticacion: 
+    -> Usuario en la base de datos
+        -> De las operaciones CRUD
+            -> Ecommerce
+                -> Create, update, delete : user - admin
+                -> Read : user - public
+        -> 
+            Tabla Usuarios
+                -> id, usuario, clave, tipo, activo
+
+            -> API
+                -> POST /tienda/usuario/login
+                -> Payload
+                    {
+                        usuario: "alex",
+                        clave: "123"
+                    }
+                -> Query: 
+                    SELECT id, usuario, tipo FROM usuarios
+                    WHERE usuario = ? AND clave = MD5(?) AND activo = 1
+
+        CREAR Usuario: 
+
+            INSERT INTO usuarios (usuario, clave, tipo, activo)
+            VALUES ("alex", MD5("123"), "admin", 1);
+
+            Dado el perfil de un usuario
+                -> admin: 
+                    - POST /tienda/productos
+                    - PUT /tienda/productos
+                    - DELETE /tienda/productos
+
+                -> public:
+                    - GET /tienda/productos
+
+            API <--- {Middleware} -- HTTP {Payload, Headers, Response} --> POSTMAN
+
+            Headers: 
+                token: 123123213
+                    -> en funcion del token
+                        -> vamos a decidir si es admin o publico
+
+            cosnt jwt = require('jsonwebtoken');
+            -- Dentro del metodo auth:
+
+            var token = jwt.sign({usuario: alex, tipo: admin}, 'clave.secreta.del.server');
+
+
+            -- Middleware
+                -> desencriptar el token que viene en el header
+                    -> {usuario: alex, tipo: admin}
+                        -> si tipo === admin
+                            -> next()

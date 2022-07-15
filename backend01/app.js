@@ -9,7 +9,7 @@ const Usuario         = require('./services/usuarios.service')
 const Producto        = require('./services/productos.service')
 const Cliente         = require('./services/clientes.service')
 const Compras         = require('./services/compras.service')
-
+const Middleware      = require('./services/middleware')
 
 app.get('/', (req, res) => {
     res.send({
@@ -47,55 +47,27 @@ app.post('/saludo', (req, res) => {
 })
 
 
-/// Obtener usuario por ID
-app.get('/usuarios/:id', (req, res) => {
-    const id   = req.params.id
-    const respuesta = Usuario.obtenerPorId(id)
-
-    res.send(respuesta)
-})
-
-app.put('/usuarios/:id', (req, res) => {
-    const usuario   = req.body
-    const id        = req.params.id
-    const respuesta = Usuario.actualizarPorId(id, usuario)
-
-    res.send(respuesta)
-})
-
-app.delete('/usuarios/:id', (req, res) => {
-    const id   = req.params.id
-    const respuesta = Usuario.eliminar(id)
-
-    res.send(respuesta)
-})
-
-app.get('/usuarios', (req, res) => {
-    const usuarios = Usuario.todos()
-    res.send(usuarios)
-})
-
-app.post('/usuarios', (req, res) => {
-    const usuario   = req.body
-    const respuesta = Usuario.crear(usuario)
-
-    res.send(respuesta)
-})
-
 // Tienda
+    // Usuarios
+    app.post('/tienda/usuarios/login', async (req, res) => {
+        const usuario  = req.body
+        const respuesta = await Usuario.auth(usuario)
+        res.send(respuesta)
+    })
     // Productos
     app.get('/tienda/productos', async (req, res) => {
         const productos = await Producto.todos()
         res.send(productos)
     })
     // new
-    app.post('/tienda/productos', async (req, res) => {
+    app.post('/tienda/productos',  Middleware.access, async (req, res) => {
         const producto  = req.body
+        console.log(req.headers.token)
         const respuesta = await Producto.nuevo(producto)
         res.send(respuesta)
     })
     // edit
-    app.put('/tienda/productos', async (req, res) => {
+    app.put('/tienda/productos', Middleware.access, async (req, res) => {
         const producto  = req.body
         const respuesta = await Producto.editar(producto)
         res.send(respuesta)
