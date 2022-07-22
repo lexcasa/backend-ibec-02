@@ -1,0 +1,13 @@
+EJERCICIO RAPIDO #2: 
+    -> Crear la API para editar una compra
+        -> PUT, /tienda/compras/:id
+        
+    -> Crear un filtro al reporte por marca y cliente
+        -> API reporte por marca
+            -> POST, /tienda/compras/reporte/marcas
+            -> Payload: 
+                {
+                    "marca": "Harley"
+                }
+        -> API reporte por cliente
+            -> GET, /tienda/compras/reporte/clientes/:id

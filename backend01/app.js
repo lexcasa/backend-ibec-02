@@ -118,6 +118,13 @@ app.post('/saludo', (req, res) => {
             res.send(respuesta)
         })
 
+        app.post('/tienda/compras/:id', async (req, res) => {
+            const compra  = req.body
+            const id      = req.params.id
+            const respuesta = await Compras.nuevo(compra, id)
+            res.send(respuesta)
+        })
+
 app.listen(port, (req, res) => {
     console.log("WEBSERVER ::: ", port)
 })

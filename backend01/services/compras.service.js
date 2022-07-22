@@ -34,6 +34,17 @@ const Compras = {
             VALUES (?, ?, ?, ?)
         `
         return Mdb.query(sql, [compra.idProducto, compra.idCliente, compra.cantidad, compra.precio])
+    },
+    editar: async function (compra, id){
+        const sql = `
+        UPDATE ${tabla} SET 
+            idProducto = ?, 
+            idCliente = ?, 
+            cantidad = ?, 
+            precio = ?
+        WHERE id = ?
+    `
+        return Mdb.query(sql, [compra.idProducto, compra.idCliente, compra.cantidad, compra.precio, id])
     }
 }
 module.exports = Compras
