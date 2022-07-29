@@ -1,0 +1,19 @@
+- Integracion con JWT
+    -> Middleware
+        -> [ Backend [Middleware]] <---- HTTP ----> [Cli]
+        
+        Req: 
+            -> GET, /productos
+            -> Headers
+                -> token
+                    -> Se verificaba en el middleware si esta correcto
+
+        Middleware
+            -> Dado un token
+                -> Saber que tipo de usuario es
+                    -> Encriptar el usuario en token con una llave en el Backend
+                        -> JWT: Json web token
+            Pasos: 
+                1. Instalar el JWT
+                    -> npm i jsonwebtoken --save
+                2. Agregarlo en el servicio de autenticacion

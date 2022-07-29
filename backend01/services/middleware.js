@@ -1,6 +1,17 @@
+const jwt = require('jsonwebtoken')
+const KEY = 'Hola.mundo!'
 const Middleware = {
     access: function (req, res, next){
-        if(req.headers.token == '123'){
+        let usr
+
+        try {
+            usr = jwt.verify(req.headers.token, KEY)
+            console.log("token", usr)
+        } catch (e){
+            console.log("error", e)
+        }
+
+        if(usr && usr.tipo == 'admin'){
             next()
         } else {
             // Arrojar un error al cliente
