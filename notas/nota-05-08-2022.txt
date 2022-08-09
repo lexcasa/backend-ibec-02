@@ -1,0 +1,7 @@
+- EJERCICIO #1: Tabla usuarios: 
+    -> Ingresar usuario
+    -> Actualizar usuario
+        -> WHERE id = ?
+    -> Obtener usuarios por tipo
+        GET /tienda/usuarios/admin
+            -> todos los usuarios que son admin
