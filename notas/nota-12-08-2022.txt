@@ -1,0 +1,23 @@
+Dos tablas: 
+    - clientes
+    - productos
+
+    - Tabla de relacion:
+        - compras
+            -> GET /compras
+                -> (producto, cliente, total)
+                    -> Producto
+                    -> Cliente
+                        Query primitiva:
+
+                            -> SELECT * FROM compras
+                            JOIN productos ON compras.idProducto = productos.id
+                            JOIN clientes ON compras.idCliente = clientes.id
+
+                            -> SELECT 
+                                CONCAT(productos.marca, ' ', productos.modelo) AS producto,
+                                clientes.nombre,
+                                (compras.cantidad * compras.precio) AS subtotal
+                               FROM compras
+                                JOIN productos ON compras.idProducto = productos.id
+                                JOIN clientes ON compras.idCliente = clientes.id
