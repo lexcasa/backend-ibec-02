@@ -5,6 +5,9 @@ const port    = 3000
 // Servicio de producto
 const Producto = require('./services/producto.services')
 
+app.use(cors())
+app.use(bodyParser.json())
+
 // Productos
 app.get('/productos', async (req, res) => {
     const productos = await Producto.todos()
