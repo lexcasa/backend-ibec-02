@@ -35,6 +35,12 @@ app.delete('/productos/:id', async (req, res) => {
     res.send(respuesta)
 })
 
+app.get('/productos/:id', async (req, res) => {
+    const id  = req.params.id
+    const respuesta = await Producto.porId(id)
+    res.send(respuesta)
+})
+
 app.listen(port, (req, res) => {
     console.log("running :: ", port)
 })

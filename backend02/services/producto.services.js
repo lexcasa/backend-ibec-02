@@ -29,6 +29,12 @@ const Producto = {
             DELETE FROM ${tabla} WHERE id = ?
         `
         return Mdb.query(sql, [id])
+    },
+    porId: async function (id){
+        const sql = `
+            SELECT * FROM ${tabla} WHERE id = ?
+        `
+        return Mdb.query(sql, [id])
     }
 }
 module.exports = Producto
